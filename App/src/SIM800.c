@@ -714,12 +714,12 @@ void SIM800_POWER_ON(void)
  	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);	 
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 ;				 
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13 ;				 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 
 	GPIO_Init(GPIOB, &GPIO_InitStructure);	
 
-	GPIO_SetBits(GPIOB,GPIO_Pin_8);	
+	GPIO_SetBits(GPIOB,GPIO_Pin_13);	
 
 	for(i = 0; i < 5; i++)
 	{
@@ -736,7 +736,7 @@ void SIM800_POWER_OFF(void)
  	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);	 
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 ;				 
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13 ;				 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 
 	GPIO_Init(GPIOB, &GPIO_InitStructure);	
@@ -763,20 +763,20 @@ void SIM800_PWRKEY_ON(void)
  	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);	 
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9 ;				 
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14 ;				 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 
 	GPIO_Init(GPIOB, &GPIO_InitStructure);	
 
 	//PWRKEY的使能
-	GPIO_SetBits(GPIOB,GPIO_Pin_9);	
+	GPIO_SetBits(GPIOB,GPIO_Pin_14);	
 
 	for(i = 0; i < 2; i++)
 	{
 		delay_ms(1000);	
 	}
 	//开机控制引脚释放
-	GPIO_ResetBits(GPIOB,GPIO_Pin_9);
+	GPIO_ResetBits(GPIOB,GPIO_Pin_14);
 	for(i = 0; i < 2; i++)
 	{
 		delay_ms(1000);	
@@ -796,20 +796,20 @@ void SIM800_PWRKEY_OFF(void)
  	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);	 
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9 ;				 
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14 ;				 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 
 	GPIO_Init(GPIOB, &GPIO_InitStructure);	
 
 	//PWRKEY的使能
-	GPIO_SetBits(GPIOB,GPIO_Pin_9);	
+	GPIO_SetBits(GPIOB,GPIO_Pin_14);	
 
 	for(i = 0; i < 2; i++)
 	{
 		delay_ms(1000);	
 	}
 	//开机控制引脚释放
-	GPIO_ResetBits(GPIOB,GPIO_Pin_9);
+	GPIO_ResetBits(GPIOB,GPIO_Pin_14);
 
 	for(i = 0; i < 2; i++)
 	{

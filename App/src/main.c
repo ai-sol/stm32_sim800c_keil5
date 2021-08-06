@@ -50,6 +50,7 @@ TIM4                   3                      1
 ////////////////////////用户程序自定义的变量和函数///////////////////////////////////////////
 
 #define TOTAL_WAIT_ECO  3        
+#define LOG_ENABLE 1
 u8 Total_Wait_Echo  =  0;
 
 void Reset_Device_Status(u8 status)
@@ -77,11 +78,11 @@ int main(void)
 
 #ifdef LOG_ENABLE	
 	//注意串口1仅仅用来发送，接收的宏没有使能
-	//#define EN_USART1_RX 			   0		//使能（1）/禁止（0）串口1接收
+	#define EN_USART1_RX 			   1		//使能（1）/禁止（0）串口1接收
 	usart1_init(115200);                            //串口1,Log
 #endif
 	
-	usart3_init(115200);                            //串口3,对接SIM800
+	usart3_init(9600);                            //串口3,对接SIM800
 	dev.msg_recv = 0;	
 	Reset_Device_Status(CMD_NONE);
 	//清零USART3_RX_BUF和USART3_RX_STA

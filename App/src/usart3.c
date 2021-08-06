@@ -56,21 +56,21 @@ void usart3_init(u32 bound)
 	GPIO_InitTypeDef GPIO_InitStructure;
 	USART_InitTypeDef USART_InitStructure;
 
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);	                       //GPIOB时钟
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);	                       //GPIOA时钟
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3,ENABLE);                          //串口3时钟使能
 
  	USART_DeInit(USART3);  //复位串口3
-	 //USART3_TX   PB10
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;                                     //PB10
+	 //USART3_TX   PA9
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;                                     //PB10
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;	                               //复用推挽输出
 	
-	GPIO_Init(GPIOB, &GPIO_InitStructure);                                         //初始化PB10
+	GPIO_Init(GPIOA, &GPIO_InitStructure);                                         //初始化PA9
  
-	//USART3_RX	  PB11
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
+	//USART3_RX	  PA10
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;                          //浮空输入
-	GPIO_Init(GPIOB, &GPIO_InitStructure);                                         //初始化PB11
+	GPIO_Init(GPIOA, &GPIO_InitStructure);                                         //初始化PA10
 	
 	USART_InitStructure.USART_BaudRate = bound;                                    //波特率一般设置为9600;
 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;                    //字长为8位数据格式
